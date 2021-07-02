@@ -9,7 +9,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <p>
+        <p className="text-green-500">
           Page has been open for <code>{count}</code> seconds. React is working.
         </p>
       </header>
