@@ -4,13 +4,13 @@ export default {
     public: '/',
     src: '/dist',
   },
+  devOptions: {
+    tailwindConfig: './tailwind.config.js',
+  },
   plugins: [
     '@snowpack/plugin-react-refresh',
     '@snowpack/plugin-dotenv',
-    [
-      '@snowpack/plugin-build-script',
-      { cmd: 'postcss', input: ['.css'], output: ['.css'] },
-    ],
+    '@snowpack/plugin-postcss',
   ],
   routes: [
     /* Enable an SPA Fallback in development: */
