@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-export async function getAll(linkURL, key) {
+export async function getLink(linkURL, key) {
   try {
     await axios.get(linkURL, {
       headers: {
@@ -15,4 +15,4 @@ export async function getAll(linkURL, key) {
   }
 }
 
-export default { getAll };
+export default { getLink };

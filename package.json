@@ -15,8 +15,6 @@
   },
   "lint-staged": {
     "*.js": [
-      "eslint src/**/*.{js}",
-      "cross-env CI=true react-scripts test --bail --passWithNoTests",
       "git add"
     ]
   },
@@ -33,6 +31,7 @@
     "tailwindcss": "^2.2.4"
   },
   "dependencies": {
+    "axios": "^0.21.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
   }
