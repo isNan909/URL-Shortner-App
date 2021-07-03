@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 
 function App() {
   useEffect(() => {
-    //disable eslint
+ // eslint-disable-line
     console.log('loaded');
   }, []);
   return (
