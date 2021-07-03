@@ -8,8 +8,8 @@ export default {
     tailwindConfig: './tailwind.config.js',
   },
   plugins: [
-    '@snowpack/plugin-react-refresh',
     '@snowpack/plugin-dotenv',
+    '@snowpack/plugin-react-refresh',
     '@snowpack/plugin-postcss',
   ],
   routes: [
