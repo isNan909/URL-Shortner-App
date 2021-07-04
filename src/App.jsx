@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
 import getLink from './api/requests';
 
+import Loader from './assets/loader.svg';
+
 function App() {
   const [input, setInput] = useState('');
   const [disable, setDisable] = useState('disabled');
+  const [loading, setLoading] = useState(false);
+  const [link, setLink] = useState('');
 
   const handleKeyDown = (event) => {
-    console.log(event.target.value);
     validURL(event.target.value);
     setInput(event.target.value);
   };
@@ -25,13 +28,17 @@ function App() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setLoading(true);
     getShortLink();
   };
 
   const getShortLink = async () => {
-    console.log('submit form', input);
-    // const shortLink = await getLink();
-    // console.log(shortLink);
+    const formatStr = input.toString().toLowerCase().trim();
+    const ourURL = `${__SNOWPACK_ENV__.SNOWPACK_PUBLIC_API_URL}`;
+    console.log(formatStr);
+    const shortenedLink = await getLink(ourURL, formatStr);
+    setLoading(false);
+    setLink(shortenedLink.data.short_link);
   };
 
   return (
@@ -80,10 +87,19 @@ function App() {
                   : 'group w-full flex justify-center py-4 px-5 border border-transparent text-lg font-medium rounded-md text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500'
               }
             >
-              Create a Link
+              {loading ? (
+                <img
+                  src={Loader}
+                  className="animate-spin h-6 w-6 mx-auto"
+                  alt="loading ..."
+                />
+              ) : (
+                <>Create a Link</>
+              )}
             </button>
           </div>
         </form>
+        <div>{link !== '' ? <> {<p>{link}</p>}</> : <></>}</div>
       </div>
     </div>
   );

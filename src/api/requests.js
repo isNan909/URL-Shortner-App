@@ -1,18 +1,15 @@
 import axios from 'axios';
 
-export async function getLink(linkURL, key) {
+export default async function getLink(linkURL, link) {
   try {
-    await axios.get(linkURL, {
+    const linkFormatter = `${linkURL}?url=${link}`;
+    const res = await axios.get(linkFormatter, {
       headers: {
         Accept: 'application/json',
-        Authorization: 'Bearer' + key,
       },
     });
-    console.log(res.data);
-    return res.data;
+    return res;
   } catch (e) {
     console.log(`${e} During fetching the Links`);
   }
 }
-
-export default { getLink };
