@@ -35,10 +35,9 @@ function App() {
   const getShortLink = async () => {
     const formatStr = input.toString().toLowerCase().trim();
     const ourURL = `${__SNOWPACK_ENV__.SNOWPACK_PUBLIC_API_URL}`;
-    console.log(formatStr);
     const shortenedLink = await getLink(ourURL, formatStr);
     setLoading(false);
-    setLink(shortenedLink.data.short_link);
+    setLink(shortenedLink.data.result.full_short_link);
   };
 
   return (
@@ -99,7 +98,7 @@ function App() {
             </button>
           </div>
         </form>
-        <div>{link !== '' ? <> {<p>{link}</p>}</> : <></>}</div>
+        <div>{link !== '' ? <>{link}</> : <></>}</div>
       </div>
     </div>
   );
