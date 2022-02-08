@@ -58,9 +58,9 @@ function App() {
       <div className="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-lg w-full space-y-8">
           <div>
-            <h2 className="mt-6 text-left text-3xl font-extrabold text-gray-900">
+            <h3 className="mt-6 text-left text-3xl font-extrabold text-gray-900">
               Short URL Generator
-            </h2>
+            </h3>
             <p className="mt-2 text-left text-1xl text-gray-400">
               URL shortener built to generate short links that creates better
               click impression.
